@@ -1,24 +1,29 @@
 <?php
-
+ 
 namespace Database\Factories;
-
-use App\Models\Prodi;
+ 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
-/**
- * @extends Factory<Prodi>
- */
+ 
 class ProdiFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $prodis = [
+            ['kode' => 'TI',  'nama' => 'Teknik Informatika',      'jenjang' => 'S1'],
+            ['kode' => 'SI',  'nama' => 'Sistem Informasi',         'jenjang' => 'S1'],
+            ['kode' => 'TK',  'nama' => 'Teknik Komputer',          'jenjang' => 'S1'],
+            ['kode' => 'MI',  'nama' => 'Manajemen Informatika',     'jenjang' => 'D3'],
+            ['kode' => 'RPL', 'nama' => 'Rekayasa Perangkat Lunak',  'jenjang' => 'S1'],
+            ['kode' => 'MTI', 'nama' => 'Magister Teknik Informatika','jenjang' => 'S2'],
+        ];
+ 
+        $prodi = fake()->unique()->randomElement($prodis);
+ 
         return [
-            //
+            'kode_prodi' => $prodi['kode'],
+            'nama_prodi' => $prodi['nama'],
+            'jenjang'    => $prodi['jenjang'],
+            'status'     => 'aktif',
         ];
     }
 }
