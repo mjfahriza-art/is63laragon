@@ -55,4 +55,19 @@ class Mahasiswa extends Model
         if ($this->nilais->isEmpty()) return 0;
         return round($this->nilais->avg('nilai_angka') / 25, 2); // konversi ke skala 4
     }
+
+    /**
+     * status_label — Label tampilan untuk status mahasiswa
+     * Dipakai oleh view: resources/views/mahasiswa/index.blade.php
+     */
+    public function getStatusLabelAttribute(): string
+    {
+        return match ($this->status) {
+            'aktif' => 'Aktif',
+            'cuti' => 'Cuti',
+            'lulus' => 'Lulus',
+            'dropout' => 'Dropout',
+            default => ucfirst((string) $this->status),
+        };
+    }
 }

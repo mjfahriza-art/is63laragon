@@ -45,10 +45,10 @@
                     @error('nilai_angka')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="nilai_huruf">Nilai Huruf</label>
-                    <input type="text" name="nilai_huruf" id="nilai_huruf" class="form-control @error('nilai_huruf') is-invalid @enderror" value="{{ old('nilai_huruf', $nilai->nilai_huruf) }}" required>
-                    @error('nilai_huruf')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                    <label for="nilai_huruf">Nilai Huruf (otomatis)</label>
+                    <input type="text" name="nilai_huruf" id="nilai_huruf" class="form-control" value="{{ old('nilai_huruf', $nilai->nilai_huruf) }}" readonly>
                 </div>
+
                 <div class="col-md-4 mb-3">
                     <label for="semester">Semester</label>
                     <input type="number" name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester', $nilai->semester) }}" required>
